@@ -5,9 +5,10 @@ from langchain.chains import LLMChain
 import os 
 from dotenv import load_dotenv
 load_dotenv()
+# for running locally
 os.environ["OPENAI_API_KEY"] = os.getenv('OPENAI_API_KEY')
-def pet_name_gen(animal_type,animal_color):
-    llm = OpenAI(temperature=0.6)                           # decide creativity level
+def pet_name_gen(animal_type,animal_color,OPENAI_API_KEY):
+    llm = OpenAI(temperature=0.6, OPENAI_API_KEY = OPENAI_API_KEY)                           # decide creativity level
     prompt_template = PromptTemplate(input_variables=['animal_type','animal_color'],
                                      template="I have {animal_type} with color {animal_color} Generate me 5 cool {animal_type} name ")
     pet_name = LLMChain(llm=llm, prompt=prompt_template)    # chaining llm with prompt template
