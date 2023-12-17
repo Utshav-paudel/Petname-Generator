@@ -5,8 +5,6 @@ from langchain.chains import LLMChain
 import os 
 from dotenv import load_dotenv
 load_dotenv()
-# openai.api_key = os.environ["OPENAI_API_KEY"]
-#os.environ["OPENAI_API_KEY"] ='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'
 os.environ["OPENAI_API_KEY"] = os.getenv('OPENAI_API_KEY')
 def pet_name_gen(animal_type,animal_color):
     llm = OpenAI(temperature=0.6)                           # decide creativity level
